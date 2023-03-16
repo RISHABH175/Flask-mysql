@@ -36,7 +36,7 @@ def home():
 
   cursor.execute(
     "INSERT INTO jobs(id,title, location, salary, currency, responsibilities, requirements) VALUES(%s,%s,%s,%s,%s,%s,%s)",
-    (title, location, salary, currency, responsibilities, requirements))
+    (id,title, location, salary, currency, responsibilities, requirements))
   mysql.connection.commit()
   cursor.close()
   return "success"
