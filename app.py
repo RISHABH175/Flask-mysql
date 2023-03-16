@@ -4,10 +4,9 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'ap-south.connect.psdb.cloud'
-app.config['MYSQL_USER'] = 'o1u9brd68nj795lm4a42'
-app.config[
-  'MYSQL_PASSWORD'] = 'pscale_pw_PAVYQAd5I6zfKZtRJmto3PdVgximyKYGJzp4fzlahyW'
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'rishabhcareers'
 
 mysql = MySQL(app)
@@ -27,6 +26,7 @@ mysql = MySQL(app)
 def home():
   cursor = mysql.connection.cursor()
   # if request.method == 'POST':
+  id = request.form('id')
   title = request.form('title')
   location = request.form('location')
   salary = request.form('salary')
@@ -35,7 +35,7 @@ def home():
   requirements = request.form('requirements')
 
   cursor.execute(
-    "INSERT INTO jobs(title, location, salary, currency, responsibilities, requirements) VALUES(%s %s %s %s %s %s)",
+    "INSERT INTO jobs(id,title, location, salary, currency, responsibilities, requirements) VALUES(%s,%s,%s,%s,%s,%s,%s)",
     (title, location, salary, currency, responsibilities, requirements))
   mysql.connection.commit()
   cursor.close()
