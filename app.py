@@ -26,7 +26,7 @@ mysql = MySQL(app)
 def home():
   if request.method == 'POST':
     title = request.form('title')
-    location = request.form'location')
+    location = request.form('location')
     salary = request.form('salary')
     currency = request.form('currency')
     responsibilities = request.form'responsibilities')
