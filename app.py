@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'ap-south.connect.psdb.cloud'
 app.config['MYSQL_USER'] = 'o1u9brd68nj795lm4a42'
-app.config[
-  'MYSQL_PASSWORD'] = 'pscale_pw_PAVYQAd5I6zfKZtRJmto3PdVgximyKYGJzp4fzlahyW'
+app.config['MYSQL_PASSWORD'] = 'pscale_pw_PAVYQAd5I6zfKZtRJmto3PdVgximyKYGJzp4fzlahyW'
 app.config['MYSQL_DB'] = 'rishabhcareers'
 
 mysql = MySQL(app)
@@ -26,12 +25,12 @@ mysql = MySQL(app)
 @app.route('/', methods=['GET', 'POST'])
 def home():
   if request.method == 'POST':
-    title = request.form.get('title')
-    location = request.form.get('location')
-    salary = request.form.get('salary')
-    currency = request.form.get('currency')
-    responsibilities = request.form.get('responsibilities')
-    requirements = request.form.get('requirements')
+    title = request.form('title')
+    location = request.form'location')
+    salary = request.form('salary')
+    currency = request.form('currency')
+    responsibilities = request.form'responsibilities')
+    requirements = request.form('requirements')
 
     cursor = mysql.connection.cursor()
     cursor.execute(
