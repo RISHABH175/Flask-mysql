@@ -26,17 +26,16 @@ mysql = MySQL(app)
 def home():
   cursor = mysql.connection.cursor()
   # if request.method == 'POST':
-  id = request.form('id')
-  title = request.form('title')
-  location = request.form('location')
-  salary = request.form('salary')
-  currency = request.form('currency')
-  responsibilities = request.form('responsibilities')
-  requirements = request.form('requirements')
-
-  cursor.execute(
-    "INSERT INTO jobs(id,title, location, salary, currency, responsibilities, requirements) VALUES(%s,%s,%s,%s,%s,%s,%s)",
-    (id,title, location, salary, currency, responsibilities, requirements))
+  # id = request.form('id')
+  # title = request.form('title')
+  # location = request.form('location')
+  # salary = request.form('salary')
+  # currency = request.form('currency')
+  # responsibilities = request.form('responsibilities')
+  # requirements = request.form('requirements')
+  first = "Ravi"
+  last = "Kiran"
+  cursor.execute("INSERT INTO user(Fname,lname) VALUES(%s,%s)", (first, last))
   mysql.connection.commit()
   cursor.close()
   return "success"
@@ -46,8 +45,6 @@ def home():
   # conn.commit()
   # conn.close()
   # c.close()
-
-  return render_template('index.html')
 
 
 if __name__ == '__main__':
