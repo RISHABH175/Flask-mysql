@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'ap-south.connect.psdb.cloud'
 app.config['MYSQL_USER'] = 'o1u9brd68nj795lm4a42'
-app.config['MYSQL_PASSWORD'] = 'pscale_pw_PAVYQAd5I6zfKZtRJmto3PdVgximyKYGJzp4fzlahyW'
+app.config[
+  'MYSQL_PASSWORD'] = 'pscale_pw_PAVYQAd5I6zfKZtRJmto3PdVgximyKYGJzp4fzlahyW'
 app.config['MYSQL_DB'] = 'rishabhcareers'
 
 mysql = MySQL(app)
@@ -29,7 +30,7 @@ def home():
     location = request.form('location')
     salary = request.form('salary')
     currency = request.form('currency')
-    responsibilities = request.form'responsibilities')
+    responsibilities = request.form('responsibilities')
     requirements = request.form('requirements')
 
     cursor = mysql.connection.cursor()
