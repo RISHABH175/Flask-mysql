@@ -10,6 +10,7 @@ Config = {
   "apiKey": "AIzaSyBRSHFaFYUCikwyJth-r2FHUa2Cjsg4hbw",
   "authDomain": "python-firebase-eacea.firebaseapp.com",
   "projectId": "python-firebase-eacea",
+  "databaseURL":"https://python-firebase-eacea-default-rtdb.firebaseio.com/",
   "storageBucket": "python-firebase-eacea.appspot.com",
   "messagingSenderId": "481606708631",
   "appId": "1:481606708631:web:d1fdfe2f4c409f050ea8d2"
