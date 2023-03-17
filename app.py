@@ -1,15 +1,31 @@
-from flask import Flask, render_template, request
+# from flask import Flask, render_template, request
 # import pymysql
-from flask_mysqldb import MySQL
+# from flask_mysqldb import MySQL
+import pyrebase
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'rishabhcareers'
 
-mysql = MySQL(app)
+Config = {
+  "apiKey": "AIzaSyBRSHFaFYUCikwyJth-r2FHUa2Cjsg4hbw",
+  "authDomain": "python-firebase-eacea.firebaseapp.com",
+  "projectId": "python-firebase-eacea",
+  "storageBucket": "python-firebase-eacea.appspot.com",
+  "messagingSenderId": "481606708631",
+  "appId": "1:481606708631:web:d1fdfe2f4c409f050ea8d2"
+};
+
+firebase =pyrebase.initialize_app(Config)
+database= firebase.database()
+
+data={"Age":21,"Name":"Hello"}
+database.push(data)
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = ''
+# app.config['MYSQL_DB'] = 'rishabhcareers'
+
+# mysql = MySQL(app)
 
 # def sql_connector():
 #   conn = pymysql.connect(
@@ -22,9 +38,10 @@ mysql = MySQL(app)
 #     return conn, c
 
 
-@app.route('/')
-def home():
-  cursor = mysql.connection.cursor()
+# @app.route('/')
+# def home():
+  
+  # cursor = mysql.connection.cursor()
   # if request.method == 'POST':
   # id = request.form('id')
   # title = request.form('title')
@@ -33,12 +50,12 @@ def home():
   # currency = request.form('currency')
   # responsibilities = request.form('responsibilities')
   # requirements = request.form('requirements')
-  first = "Ravi"
-  last = "Kiran"
-  cursor.execute("INSERT INTO user(Fname,lname) VALUES(%s,%s)", (first, last))
-  mysql.connection.commit()
-  cursor.close()
-  return "success"
+  # first = "Ravi"
+  # last = "Kiran"
+  # cursor.execute("INSERT INTO user(Fname,lname) VALUES(%s,%s)", (first, last))
+  # mysql.connection.commit()
+  # cursor.close()
+  # return "success"
   # conn, c = sql_connector()
   # c.execute("INSERT INTO jobs VALUES ('{}' {} {} {} {} {})".format(
   #   title, location, salary, currency, responsibilities, requirements))
@@ -47,7 +64,7 @@ def home():
   # c.close()
 
 
-if __name__ == '__main__':
-  app.run(host="0.0.0.0")
+# if __name__ == '__main__':
+#   app.run(host="0.0.0.0")
 
 # pymysql, mysql-connector, mysql-connector-python
